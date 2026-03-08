@@ -50,32 +50,32 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Company */}
+          {/* Navegación — mismas secciones que el navbar */}
           <div>
-            <h3 className="font-semibold mb-4">Company</h3>
+            <h3 className="font-semibold mb-4">Nukay</h3>
             <ul className="space-y-3">
               <li>
                 <a
-                  href={withBase("/about")}
+                  href="#nosotros"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  About
+                  Nosotros
                 </a>
               </li>
               <li>
                 <a
-                  href={withBase("/blog")}
+                  href="#servicios"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Blog
+                  Servicios
                 </a>
               </li>
               <li>
                 <a
-                  href={withBase("/contact")}
+                  href="#contacto"
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Contact
+                  Contacto
                 </a>
               </li>
             </ul>

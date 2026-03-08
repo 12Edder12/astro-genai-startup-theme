@@ -57,8 +57,10 @@ export function ServicesNukay() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="flex items-start p-6 bg-white dark:bg-[#2C2C2C] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-[#00FF00]/50 transition-all duration-300"
+                transition={{ delay: idx * 0.1, duration: 0.3 }}
+                whileHover={{ y: -6, scale: 1.02, boxShadow: "0 16px 40px rgba(0,0,0,0.12)" }}
+                whileTap={{ scale: 0.98 }}
+                className="flex items-start p-6 bg-white dark:bg-[#2C2C2C] rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 hover:border-[#002E6E] dark:hover:border-[#00FF00] transition-colors duration-300 cursor-pointer"
               >
                 <div className="flex-shrink-0 p-3 bg-[#002E6E]/10 dark:bg-[#002E6E]/30 rounded-xl mt-1">
                   <Icon className="h-6 w-6 text-[#002E6E] dark:text-[#00FF00]" />

@@ -22,7 +22,7 @@ export function AboutNukay() {
             className="space-y-4"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#002E6E] dark:text-[#00FF00]">Nuestra Misión</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-justify">
               En Nukay, nuestra misión es desarrollar soluciones tecnológicas innovadoras que impulsen la transformación digital de las empresas, optimizando procesos y mejorando la experiencia del usuario.
             </p>
           </motion.div>
@@ -34,7 +34,7 @@ export function AboutNukay() {
             className="space-y-4"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-[#002E6E] dark:text-[#00FF00]">Nuestra Visión</h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-lg text-gray-600 dark:text-gray-300 text-justify">
               Ser líderes en el desarrollo de software, creando productos escalables y eficientes que impacten positivamente en la sociedad y la industria tecnológica.
             </p>
           </motion.div>
@@ -45,7 +45,7 @@ export function AboutNukay() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-[#B9663B]"
+            className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
           >
             Nuestros Valores
           </motion.h2>
@@ -63,11 +63,11 @@ export function AboutNukay() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-gray-50 dark:bg-[#002E6E]/30 border border-gray-200 dark:border-[#00FF00]/20 p-6 rounded-2xl hover:border-[#002E6E] dark:hover:border-[#00FF00] transition-colors"
               >
-                <div className="h-12 w-12 rounded-full bg-[#002E6E]/10 dark:bg-[#00FF00]/10 flex items-center justify-center mb-4">
+                <div className="h-12 w-12 rounded-full bg-[#002E6E]/10 dark:bg-[#00FF00]/10 flex items-center justify-center mb-4 ">
                   <Icon className="text-[#002E6E] dark:text-[#00FF00] h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{v.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{v.desc}</p>
+                <p className="text-gray-600 dark:text-gray-400 text-justify">{v.desc}</p>
               </motion.div>
             );
           })}

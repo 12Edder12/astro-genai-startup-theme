@@ -35,7 +35,7 @@ export function ServicesNukay() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Nukay <span className="text-[#00FF00]">Servicios</span>
+            Nukay <span className="text-[#002E6E] dark:text-[#00FF00]">Servicios</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export function ServicesNukay() {
                   <h3 className="text-xl font-bold mb-2 text-[#B9663B] dark:text-white">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 text-justify">
                     {service.description}
                   </p>
                 </div>

@@ -91,7 +91,7 @@ export function ContactNukay() {
 
     try {
       const response = await fetch(
-        "https://formsubmit.co/ajax/edderman21@gmail.com",
+        `https://formsubmit.co/ajax/${import.meta.env.PUBLIC_CORREO_EMAIL || "edderman21@gmail.com"}`,
         { method: "POST", body: fd, headers: { Accept: "application/json" } }
       );
 
@@ -164,7 +164,7 @@ export function ContactNukay() {
             className="space-y-8"
           >
             <div className="bg-gray-50 dark:bg-[#2C2C2C] p-8 rounded-2xl border border-gray-100 dark:border-gray-800">
-              <h3 className="text-2xl font-bold mb-6 text-[#B9663B] dark:text-white">Información</h3>
+              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Información</h3>
 
               <div className="space-y-6">
                 {/* Email */}

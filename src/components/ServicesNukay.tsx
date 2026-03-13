@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Code2, Settings, ShieldCheck, Presentation } from "lucide-react";
+import servicesImg from "../images/services.jpg";
 
 const services = [
   {
@@ -26,8 +27,16 @@ const services = [
 
 export function ServicesNukay() {
   return (
-    <section id="servicios" className="py-20 md:py-32 bg-gray-50 dark:bg-[#1a1a1a]">
-      <div className="container mx-auto px-4">
+    <section id="servicios" className="relative py-20 md:py-32 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${servicesImg.src ?? servicesImg})` }}
+      >
+        <div className="absolute inset-0 bg-gray-50/90 dark:bg-[#1a1a1a]/90 transition-colors duration-300" />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +75,7 @@ export function ServicesNukay() {
                   <Icon className="h-6 w-6 text-[#002E6E] dark:text-[#00FF00]" />
                 </div>
                 <div className="ml-5">
-                  <h3 className="text-xl font-bold mb-2 text-[#B9663B] dark:text-white">
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 text-justify">

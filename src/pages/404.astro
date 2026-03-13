@@ -5,7 +5,7 @@ import { Home, Search, ArrowLeft } from 'lucide-react';
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Page Not Found - GenAI">
+<Layout title="Pagina no Encontrada">
 	<section class="py-20 md:py-32 min-h-[60vh] flex items-center">
 		<div class="container mx-auto px-4">
 			<div class="max-w-2xl mx-auto text-center">
@@ -26,10 +26,10 @@ const base = import.meta.env.BASE_URL;
 
 				{/* Content */}
 				<h2 class="text-3xl md:text-4xl font-bold mb-4">
-					Page Not Found
+					Página no Encontrada
 				</h2>
 				<p class="text-lg text-muted-foreground mb-8">
-					Oops! The page you're looking for doesn't exist. It might have been moved or deleted.
+					¡Ups! La página que estás buscando no existe. Puede que se haya movido o eliminado.
 				</p>
 
 				{/* Actions */}
@@ -39,42 +39,8 @@ const base = import.meta.env.BASE_URL;
 						class="inline-flex items-center justify-center gap-2 h-10 px-6 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
 					>
 						<Home class="h-4 w-4" />
-						Back to Home
+						Volver al Inicio
 					</a>
-					<button
-						onclick="history.back()"
-						class="inline-flex items-center justify-center gap-2 h-10 px-6 rounded-md border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
-					>
-						<ArrowLeft class="h-4 w-4" />
-						Go Back
-					</button>
-				</div>
-
-				{/* Helpful Links */}
-				<div class="mt-12 pt-8 border-t">
-					<p class="text-sm text-muted-foreground mb-4">
-						Here are some helpful links instead:
-					</p>
-					<div class="flex flex-wrap gap-4 justify-center">
-						<a href={`${base}#features`} class="text-sm text-primary hover:underline">
-							Features
-						</a>
-						<a href={`${base}#pricing`} class="text-sm text-primary hover:underline">
-							Pricing
-						</a>
-						<a href={`${base}blog`} class="text-sm text-primary hover:underline">
-							Blog
-						</a>
-						<a href={`${base}about`} class="text-sm text-primary hover:underline">
-							About
-						</a>
-						<a href={`${base}contact`} class="text-sm text-primary hover:underline">
-							Contact
-						</a>
-						<a href={`${base}#faq`} class="text-sm text-primary hover:underline">
-							FAQ
-						</a>
-					</div>
 				</div>
 			</div>
 		</div>

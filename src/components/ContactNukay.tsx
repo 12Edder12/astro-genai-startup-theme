@@ -124,6 +124,7 @@ export function ContactNukay() {
     const fd = new FormData();
     fd.append("name", name.trim());
     fd.append("email", email.trim());
+    fd.append("_replyto", email.trim()); // Para que puedas responder directamente
     fd.append("message", message.trim());
     fd.append("_subject", "Nuevo mensaje desde la página de Nukay!");
     fd.append("_template", "table");
@@ -131,7 +132,7 @@ export function ContactNukay() {
 
     try {
       const response = await fetch(
-        `https://formsubmit.co/ajax/${import.meta.env.PUBLIC_CORREO_EMAIL || "edderman21@gmail.com"}`,
+        `https://formsubmit.co/ajax/${import.meta.env.PUBLIC_CORREO_EMAIL || "edder.naranjo@nukaysw.com"}`,
         { method: "POST", body: fd, headers: { Accept: "application/json" } }
       );
 

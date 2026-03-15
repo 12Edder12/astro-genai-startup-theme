@@ -214,8 +214,8 @@ export function ContactNukay() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</p>
-                    <a href="mailto:hola@nukay.com" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#002E6E] dark:hover:text-[#00FF00] transition-colors">
-                      hola@nukay.com
+                    <a href="mailto:edder.naranjo@nukaysw.com" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#002E6E] dark:hover:text-[#00FF00] transition-colors">
+                      edder.naranjo@nukaysw.com
                     </a>
                   </div>
                 </div>

@@ -87,6 +87,9 @@ export function Footer() {
           <p className="text-sm text-muted-foreground">
             © {currentYear} Nukay. Todos los derechos reservados.
           </p>
+          <p className="text-sm text-muted-foreground">
+            Naranjo Cordova Edder Daniel
+          </p>
         </div>
       </div>
     </footer>

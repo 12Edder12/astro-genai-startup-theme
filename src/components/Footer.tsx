@@ -88,7 +88,7 @@ export function Footer() {
             © {currentYear} Nukay. Todos los derechos reservados.
           </p>
           <p className="text-sm text-muted-foreground">
-            Naranjo Cordova Edder Daniel
+            Naranjo Vaca Danny Fabricio
           </p>
         </div>
       </div>

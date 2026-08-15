@@ -6,14 +6,20 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://ctrimm.github.io',
+  site: 'https://nukaysw.com',
   base: '/',
   integrations: [
     react(),
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => ![
+        '/about/', '/contact/', '/dashboard/', '/changelog/',
+        '/components/', '/advanced-components/',
+        '/blog/', '/blog/getting-started-with-ai/', '/markdown-page/',
+      ].some((path) => page.endsWith(path)),
+    }),
     mdx()
   ]
 });

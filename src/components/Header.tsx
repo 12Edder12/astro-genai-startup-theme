@@ -18,7 +18,7 @@ export function Header() {
         {/* Logo */}
         <a href={withBase("/")} className="flex items-center space-x">
           <div className="flex items-center justify-center w-7 h-8 rounded-lg overflow-hidden">
-            <img src={withBase("../../nukay.ico")} alt="Nukay Logo" className="w-full h-full object-cover" />
+            <img src={withBase("/nukay-mark.png")} alt="Nukay Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-bold text-xl bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent">
             ukay

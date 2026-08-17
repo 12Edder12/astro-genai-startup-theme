@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/main.astro';
+import { company } from '@/lib/company';
 ---
 
 <Layout title="Términos de Servicio - Nukay">
@@ -102,9 +103,9 @@ import Layout from '../layouts/main.astro';
 						Para preguntas sobre estos Términos, contáctanos:
 					</p>
 					<ul>
-						<li>Email: <a href="mailto:edder.naranjo@nukaysw.com">edder.naranjo@nukaysw.com</a></li>
-						<li>Dirección: Julio Berne y Juan Sebastián Bash, Picaigua, Ambato, Tungurahua, Ecuador</li>
-						<li>Teléfono: +593 979071020</li>
+						<li>Email: <a href={`mailto:${company.email}`}>{company.email}</a></li>
+						<li>Dirección: {company.address.full}</li>
+						<li>Teléfono: {company.phone.display}</li>
 					</ul>
 
 					<hr />

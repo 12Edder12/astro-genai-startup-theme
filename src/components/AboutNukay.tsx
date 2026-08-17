@@ -15,6 +15,9 @@ export function AboutNukay() {
   return (
     <section id="nosotros" className="bg-white dark:bg-[#2C2C2C] text-gray-900 dark:text-white transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:py-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-[#002E6E] dark:text-white">
+          Sobre Nukay
+        </h2>
         <div className="grid md:grid-cols-2 gap-12 items-center mb-10">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -38,9 +41,9 @@ export function AboutNukay() {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#002E6E] dark:text-white">Nuestra Misión</h2>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#002E6E] dark:text-white">Nuestra Misión</h3>
               <p className="text-lg text-gray-600 dark:text-gray-300 text-justify">
-                En Nukay, nuestra misión es desarrollar soluciones tecnológicas innovadoras que impulsen la transformación digital de las empresas,
+                En Nukay, empresa de desarrollo de software en Ambato, nuestra misión es desarrollar soluciones tecnológicas innovadoras que impulsen la transformación digital de las empresas,
                 optimizando procesos y mejorando la experiencia del usuario.
               </p>
             </motion.div>
@@ -51,7 +54,7 @@ export function AboutNukay() {
               viewport={{ once: true }}
               className="space-y-4"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-[#002E6E] dark:text-white">Nuestra Visión</h2>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#002E6E] dark:text-white">Nuestra Visión</h3>
               <p className="text-lg text-gray-600 dark:text-gray-300 text-justify">
                 Ser líderes en el desarrollo de software, creando productos escalables y eficientes que impacten positivamente en la sociedad
                 y la industria tecnológica.
@@ -65,14 +68,14 @@ export function AboutNukay() {
       <div className="bg-gray-50 dark:bg-[#1a1a1a] py-12 md:py-16">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <motion.h2
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white"
+              className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white"
             >
               Nuestros Valores
-            </motion.h2>
+            </motion.h3>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -92,7 +95,7 @@ export function AboutNukay() {
                   <div className="flex-shrink-0 p-3 bg-[#002E6E]/10 dark:bg-[#002E6E]/30 rounded-xl mb-4 w-fit">
                     <Icon className="text-[#002E6E] dark:text-[#00FF00] h-6 w-6" />
                   </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{v.title}</h3>
+                  <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">{v.title}</h4>
                   <p className="text-gray-600 dark:text-gray-400 text-justify">{v.desc}</p>
                 </motion.div>
               );

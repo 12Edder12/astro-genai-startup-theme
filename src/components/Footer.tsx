@@ -1,6 +1,9 @@
-import { Sparkles, Github, Twitter, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Instagram, Mail, Phone, MapPin } from "lucide-react";
 import { withBase } from "@/lib/utils";
+import { company } from "@/lib/company";
+import { services } from "@/lib/services";
+import { TikTokIcon } from "@/components/icons/TikTokIcon";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,71 +14,119 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x">
-              <div className="flex items-center justify-center w-7 h-8 rounded-lg overflow-hidden">
-                <img src={withBase("/nukay-mark.png")} alt="Nukay Logo" className="w-full h-full object-cover" />
+            <a href={withBase("/")} className="flex items-center space-x" aria-label="Nukay — Inicio">
+              <div className="flex items-center justify-center w-7 h-8 rounded-lg overflow-hidden" aria-hidden="true">
+                <img src={withBase("/nukay-mark.png")} alt="" className="w-full h-full object-cover" />
               </div>
-              <span className="font-bold text-xl bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent">
+              <span aria-hidden="true" className="font-bold text-xl bg-gradient-to-r from-green-600 to-blue-600 dark:from-green-400 dark:to-blue-400 bg-clip-text text-transparent">
                 ukay
               </span>
-            </div>
+            </a>
             <p className="text-sm text-muted-foreground">
-              Tecnología hecha por nosotros para potenciar lo nuestro.
+              {company.tagline}
             </p>
             <div className="flex gap-3">
               <a
-                href="https://github.com"
+                href={company.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Nukay en Instagram"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Github className="h-5 w-5" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="https://twitter.com"
+                href={company.social.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Nukay en TikTok"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Twitter className="h-5 w-5" />
+                <TikTokIcon className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com"
+                href={company.social.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Escríbenos por WhatsApp"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Linkedin className="h-5 w-5" />
+                <WhatsAppIcon className="h-5 w-5" />
               </a>
             </div>
           </div>
 
-          {/* Navegación — mismas secciones que el navbar */}
+          {/* Navegación */}
           <div>
             <h3 className="font-semibold mb-4">Nukay</h3>
             <ul className="space-y-3">
               <li>
-                <a
-                  href="#nosotros"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <a href={withBase("/sobre-nosotros")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Nosotros
                 </a>
               </li>
               <li>
-                <a
-                  href="#servicios"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <a href={withBase("/servicios")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Servicios
                 </a>
               </li>
               <li>
-                <a
-                  href="#contacto"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
+                <a href={withBase("/#contacto")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Contacto
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Servicios */}
+          <div>
+            <h3 className="font-semibold mb-4">Servicios</h3>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service.slug}>
+                  <a
+                    href={withBase(`/servicios/${service.slug}`)}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {service.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contacto + Legal */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="font-semibold mb-4">Contacto</h3>
+              <ul className="space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <a href={`mailto:${company.email}`} className="hover:text-foreground transition-colors break-all">
+                    {company.email}
+                  </a>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Phone className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <a href={`tel:${company.phone.e164}`} className="hover:text-foreground transition-colors">
+                    {company.phone.display}
+                  </a>
+                </li>
+                <li className="flex items-start gap-2">
+                  <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                  <span>{company.address.full}</span>
+                </li>
+              </ul>
+            </div>
+            <ul className="space-y-3">
+              <li>
+                <a href={withBase("/privacy")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Política de Privacidad
+                </a>
+              </li>
+              <li>
+                <a href={withBase("/terms")} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Términos de Servicio
                 </a>
               </li>
             </ul>

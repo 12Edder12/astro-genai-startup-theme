@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/main.astro';
+import { company } from '@/lib/company';
+import { services } from '@/lib/services';
+import { Sparkles, Target, Compass, MapPin, ArrowRight } from 'lucide-react';
+import groupImg from '../images/group.jpg';
+
+const base = import.meta.env.BASE_URL;
+
+const breadcrumbSchema = {
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Inicio", "item": new URL(base, Astro.site).toString() },
+		{ "@type": "ListItem", "position": 2, "name": "Sobre Nosotros", "item": new URL('/sobre-nosotros', Astro.site).toString() },
+	],
+};
+
+const valores = [
+	{ title: "Innovación", desc: "Buscamos soluciones tecnológicas creativas y disruptivas." },
+	{ title: "Colaboración", desc: "Creemos en el trabajo en equipo y la comunicación efectiva." },
+	{ title: "Transparencia", desc: "Actuamos con honestidad y claridad en cada proyecto." },
+	{ title: "Excelencia", desc: "Nos esforzamos por ofrecer software de alta calidad." },
+	{ title: "Agilidad", desc: "Nos adaptamos rápidamente a los cambios y desafíos." },
+	{ title: "Responsabilidad", desc: "Contribuimos al bienestar social y ambiental." },
+];
+---
+
+<Layout
+	title="Sobre Nukay | Empresa de desarrollo de software en Ambato, Ecuador"
+	description="Nukay es una empresa ecuatoriana de desarrollo de software con sede en Ambato, Tungurahua. Conoce nuestra historia, el origen kichwa de nuestro nombre y qué hacemos."
+	schema={[breadcrumbSchema]}
+>
+	<!-- Hero -->
+	<section class="py-20 md:py-28 text-center">
+		<div class="container mx-auto px-4">
+			<span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-background/50 text-sm font-medium text-muted-foreground mb-6">
+				Ambato, Ecuador
+			</span>
+			<h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+				Sobre{" "}
+				<span class="bg-gradient-to-r from-green-500 via-blue-600 to-green-500 dark:from-green-400 dark:via-blue-500 dark:to-green-400 bg-clip-text text-transparent">
+					Nukay
+				</span>
+			</h1>
+			<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+				Empresa ecuatoriana de desarrollo de software con sede en Ambato, Tungurahua.
+			</p>
+		</div>
+	</section>
+
+	<!-- Qué es Nukay -->
+	<section class="py-12 md:py-16 bg-white dark:bg-[#2C2C2C]">
+		<div class="container mx-auto px-4">
+			<div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
+				<div class="overflow-hidden rounded-2xl shadow-lg order-2 md:order-1">
+					<img
+						src={groupImg.src ?? groupImg}
+						alt="Equipo de trabajo en Nukay"
+						class="w-full h-full max-h-[380px] object-cover"
+					/>
+				</div>
+				<div class="space-y-4 order-1 md:order-2">
+					<h2 class="text-3xl font-bold text-[#002E6E] dark:text-white">¿Qué es Nukay?</h2>
+					<p class="text-lg text-gray-600 dark:text-gray-300">
+						Diseñamos software a medida, automatizamos procesos empresariales, protegemos sistemas
+						con ciberseguridad y acompañamos a empresas de Ecuador en su transformación digital.
+					</p>
+					<div class="flex flex-wrap gap-2 pt-2">
+						{services.map((service) => (
+							<a
+								href={`${base}servicios/${service.slug}`}
+								class="text-sm px-3 py-1.5 rounded-full border border-[#002E6E]/20 dark:border-[#00FF00]/20 text-[#002E6E] dark:text-[#00FF00] hover:bg-[#002E6E]/10 dark:hover:bg-[#00FF00]/10 transition-colors"
+							>
+								{service.title}
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Origen del nombre -->
+	<section class="py-12 md:py-16 bg-gray-50 dark:bg-[#1a1a1a]">
+		<div class="container mx-auto px-4">
+			<div class="max-w-3xl mx-auto p-8 md:p-10 rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-[#2C2C2C] shadow-sm">
+				<div class="inline-flex p-3 rounded-xl bg-[#002E6E]/10 dark:bg-[#00FF00]/10 mb-4">
+					<Sparkles className="h-6 w-6 text-[#002E6E] dark:text-[#00FF00]" />
+				</div>
+				<h2 class="text-2xl md:text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+					¿Qué significa "Nukay"?
+				</h2>
+				<p class="text-lg text-gray-600 dark:text-gray-300">
+					En quichua, "Nukay" significa "lo mío". Nació de una observación simple: aunque el
+					software y la inteligencia artificial avanzaban rápido, el control de los datos se
+					alejaba cada vez más de los usuarios. Nos propusimos cambiar eso — tecnología hecha por
+					nosotros para potenciar lo nuestro.
+				</p>
+				<p class="text-sm text-gray-500 dark:text-gray-400 mt-6 pt-6 border-t border-gray-100 dark:border-gray-700">
+					{company.disambiguatingDescription}
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Misión y Visión -->
+	<section class="py-12 md:py-16 bg-white dark:bg-[#2C2C2C]">
+		<div class="container mx-auto px-4">
+			<div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+				<div class="p-8 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1a1a]">
+					<div class="inline-flex p-3 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 mb-4">
+						<Target className="h-6 w-6 text-white" />
+					</div>
+					<h2 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Nuestra Misión</h2>
+					<p class="text-gray-600 dark:text-gray-300">
+						Desarrollar soluciones tecnológicas innovadoras que impulsen la transformación digital
+						de las empresas, optimizando procesos y mejorando la experiencia del usuario.
+					</p>
+				</div>
+				<div class="p-8 rounded-2xl border border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-[#1a1a1a]">
+					<div class="inline-flex p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 mb-4">
+						<Compass className="h-6 w-6 text-white" />
+					</div>
+					<h2 class="text-2xl font-bold mb-3 text-gray-900 dark:text-white">Nuestra Visión</h2>
+					<p class="text-gray-600 dark:text-gray-300">
+						Ser líderes en el desarrollo de software, creando productos escalables y eficientes
+						que impacten positivamente en la sociedad y la industria tecnológica.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Valores -->
+	<section class="py-12 md:py-16 bg-gray-50 dark:bg-[#1a1a1a]">
+		<div class="container mx-auto px-4">
+			<h2 class="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">Nuestros Valores</h2>
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+				{valores.map((v) => (
+					<div class="p-6 rounded-2xl bg-white dark:bg-[#2C2C2C] border border-gray-100 dark:border-gray-800 hover:border-[#002E6E] dark:hover:border-[#00FF00] transition-colors">
+						<h3 class="text-lg font-bold mb-2 text-gray-900 dark:text-white">{v.title}</h3>
+						<p class="text-sm text-gray-600 dark:text-gray-400">{v.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Dónde estamos -->
+	<section class="py-16 md:py-20 bg-white dark:bg-[#2C2C2C]">
+		<div class="container mx-auto px-4">
+			<div class="max-w-2xl mx-auto text-center">
+				<div class="inline-flex p-3 rounded-xl bg-[#002E6E]/10 dark:bg-[#00FF00]/10 mb-4">
+					<MapPin className="h-6 w-6 text-[#002E6E] dark:text-[#00FF00]" />
+				</div>
+				<h2 class="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-white">Dónde estamos</h2>
+				<p class="text-lg text-gray-600 dark:text-gray-300 mb-8">{company.address.full}</p>
+				<a
+					href={`${base}#contacto`}
+					class="inline-flex items-center gap-2 h-11 px-6 rounded-md bg-[#002E6E] text-white hover:bg-[#002E6E]/90 dark:bg-[#00FF00] dark:text-[#2C2C2C] dark:hover:bg-[#00FF00]/90 font-medium transition-colors"
+				>
+					Hablemos de tu proyecto
+					<ArrowRight className="h-4 w-4" />
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, Zap, Brain } from "lucide-react";
+import { ArrowRight, Zap, Brain, Sparkles } from "lucide-react";
+import { withBase } from "@/lib/utils";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-20 md:py-32">
+    <section id="inicio" className="relative overflow-hidden py-20 md:py-32">
       {/* Background gradients */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-green-300 dark:bg-green-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob" />
@@ -14,13 +15,14 @@ export function Hero() {
 
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center text-center space-y-8">
-          {/* Badge */}
+          {/* Eyebrow */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border bg-background/50 text-sm font-medium text-muted-foreground"
           >
-
+            Ambato, Ecuador
           </motion.div>
 
           {/* Main Heading */}
@@ -30,21 +32,45 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight max-w-4xl"
           >
-            Tecnología hecha por nosotros para potenciar{" "}
             <span className="bg-gradient-to-r from-green-500 via-blue-600 to-green-500 dark:from-green-400 dark:via-blue-500 dark:to-green-400 bg-clip-text text-transparent animate-gradient">
-              lo nuestro
+              Nukay
             </span>
+            : software a medida para tu empresa
           </motion.h1>
 
-          {/* Subheading */}
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-lg md:text-xl font-medium text-foreground/80 max-w-2xl"
+          >
+            Tecnología hecha por nosotros para potenciar lo nuestro.
+          </motion.p>
+
+          {/* Párrafo de identidad — quiénes somos, dónde, qué hacemos */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl"
+            className="text-base md:text-lg text-muted-foreground max-w-2xl"
           >
-            Desarrollamos soluciones de inteligencia artificial a medida para optimizar los procesos y llevar tu negocio al siguiente nivel.
+            Nukay es una empresa ecuatoriana de desarrollo de software con sede en Ambato, Tungurahua. Creamos software a medida, automatización de procesos, ciberseguridad y consultoría tecnológica para empresas de Ecuador.
           </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Button size="lg" asChild>
+              <a href={withBase("/#contacto")}>
+                Hablemos de tu proyecto
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </Button>
+          </motion.div>
 
           {/* Stats */}
           <motion.div

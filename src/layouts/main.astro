@@ -3,41 +3,80 @@ import '../styles/global.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { CommandPalette } from '@/components/CommandPalette';
+import { company } from '@/lib/company';
 
 interface Props {
 	title?: string;
 	description?: string;
 	image?: string;
 	noindex?: boolean;
+	/** Nodos JSON-LD adicionales (Service, BreadcrumbList, FAQPage...) para fusionar en el @graph de la página. */
+	schema?: object[];
 }
 
 const {
-	title = "Nukay | Tecnología hecha por nosotros para potenciar lo nuestro",
-	description = "Nukay desarrolla soluciones de software e inteligencia artificial a medida en Ecuador, para optimizar procesos y devolver el control de los datos a tu empresa.",
+	title = "Nukay SW | Desarrollo de software a medida en Ambato, Ecuador",
+	description = "Nukay (Nukay SW) es una empresa de desarrollo de software en Ambato, Ecuador. Software a medida, inteligencia artificial, automatización de procesos y ciberseguridad para empresas.",
 	image = "/nukay-Open-Graph.png",
 	noindex = false,
+	schema = [],
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(image, Astro.site);
+const siteURL = Astro.site?.toString() ?? "https://www.nukaysw.com/";
+const orgId = `${siteURL}#organization`;
 
 const jsonLd = {
 	"@context": "https://schema.org",
-	"@type": "Organization",
-	"name": "Nukay",
-	"url": Astro.site?.toString(),
-	"logo": ogImageURL.toString(),
-	"description": "Nukay desarrolla soluciones de software e inteligencia artificial a medida para optimizar los procesos y llevar tu negocio al siguiente nivel.",
-	"email": "edder.naranjo@nukaysw.com",
-	"address": {
-		"@type": "PostalAddress",
-		"addressLocality": "Ambato",
-		"addressCountry": "EC"
-	}
+	"@graph": [
+		{
+			"@type": ["Organization", "ProfessionalService"],
+			"@id": orgId,
+			"name": company.name,
+			"alternateName": [...company.alternateNames],
+			"url": siteURL,
+			"logo": {
+				"@type": "ImageObject",
+				"url": new URL("/nukay-mark.png", Astro.site).toString(),
+			},
+			"image": ogImageURL.toString(),
+			"description": company.description,
+			"disambiguatingDescription": company.disambiguatingDescription,
+			"slogan": company.tagline,
+			"email": company.email,
+			"telephone": company.phone.e164,
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": company.address.street,
+				"addressLocality": company.address.locality,
+				"addressRegion": company.address.region,
+				"addressCountry": company.address.country,
+			},
+			"areaServed": { "@type": "Country", "name": "Ecuador" },
+			"knowsAbout": [
+				"Desarrollo de software a medida",
+				"Inteligencia artificial aplicada",
+				"Automatización de procesos",
+				"Ciberseguridad",
+				"Consultoría tecnológica",
+			],
+			"sameAs": [company.social.instagram, company.social.tiktok],
+		},
+		{
+			"@type": "WebSite",
+			"@id": `${siteURL}#website`,
+			"url": siteURL,
+			"name": company.name,
+			"inLanguage": "es-EC",
+			"publisher": { "@id": orgId },
+		},
+		...schema,
+	],
 };
 ---
 
-<html lang="es">
+<html lang="es-EC">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -57,6 +96,8 @@ const jsonLd = {
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:locale" content="es_EC" />
 
 		<!-- Twitter Card -->

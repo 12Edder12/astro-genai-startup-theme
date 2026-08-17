@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Phone, MapPin, Send, CheckCircle2, X, AlertCircle, Clock } from "lucide-react";
+import { company } from "@/lib/company";
 
 // ── Validadores ──────────────────────────────────────────────────────────────
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -132,7 +133,7 @@ export function ContactNukay() {
 
     try {
       const response = await fetch(
-        `https://formsubmit.co/ajax/${import.meta.env.PUBLIC_CORREO_EMAIL || "edder.naranjo@nukaysw.com"}`,
+        `https://formsubmit.co/ajax/${import.meta.env.PUBLIC_CORREO_EMAIL || company.email}`,
         { method: "POST", body: fd, headers: { Accept: "application/json" } }
       );
 
@@ -214,8 +215,8 @@ export function ContactNukay() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</p>
-                    <a href="mailto:edder.naranjo@nukaysw.com" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#002E6E] dark:hover:text-[#00FF00] transition-colors">
-                      edder.naranjo@nukaysw.com
+                    <a href={`mailto:${company.email}`} className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#002E6E] dark:hover:text-[#00FF00] transition-colors">
+                      {company.email}
                     </a>
                   </div>
                 </div>
@@ -225,8 +226,8 @@ export function ContactNukay() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Teléfono</p>
-                    <a href="tel:+593980734572" className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#002E6E] dark:hover:text-[#00FF00] transition-colors">
-                      +593 980734572
+                    <a href={`tel:${company.phone.e164}`} className="text-lg font-semibold text-gray-900 dark:text-white hover:text-[#002E6E] dark:hover:text-[#00FF00] transition-colors">
+                      {company.phone.display}
                     </a>
                   </div>
                 </div>
@@ -236,7 +237,7 @@ export function ContactNukay() {
                   </div>
                   <div className="ml-4">
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Ubicación</p>
-                    <p className="text-lg font-semibold text-gray-900 dark:text-white">Ambato, Ecuador</p>
+                    <p className="text-lg font-semibold text-gray-900 dark:text-white">{company.address.full}</p>
                   </div>
                 </div>
               </div>

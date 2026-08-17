@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Code2, Settings, ShieldCheck, Presentation } from "lucide-react";
 import servicesImg from "../images/services.jpg";
+import { withBase } from "@/lib/utils";
 
 const services = [
   {
@@ -44,7 +45,7 @@ export function ServicesNukay() {
             viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-4"
           >
-            Nukay <span className="text-[#002E6E] dark:text-[#00FF00]">Servicios</span>
+            Servicios de <span className="text-[#002E6E] dark:text-[#00FF00]">desarrollo de software</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -53,7 +54,7 @@ export function ServicesNukay() {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Los servicios que ofrecemos para llevar tu empresa al futuro.
+            Lo que hacemos en Nukay desde Ambato, Ecuador, para llevar tu empresa al futuro.
           </motion.p>
         </div>
 
@@ -85,6 +86,15 @@ export function ServicesNukay() {
               </motion.div>
             );
           })}
+        </div>
+
+        <div className="text-center mt-12">
+          <a
+            href={withBase("/servicios")}
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#002E6E] dark:text-[#00FF00] hover:underline"
+          >
+            Ver todos los servicios
+          </a>
         </div>
       </div>
     </section>

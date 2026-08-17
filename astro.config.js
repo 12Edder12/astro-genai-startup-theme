@@ -6,7 +6,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://nukaysw.com',
+  site: 'https://www.nukaysw.com',
   base: '/',
   integrations: [
     react(),
@@ -19,6 +19,7 @@ export default defineConfig({
         '/components/', '/advanced-components/',
         '/blog/', '/blog/getting-started-with-ai/', '/markdown-page/',
       ].some((path) => page.endsWith(path)),
+      changefreq: 'weekly',
     }),
     mdx()
   ]
